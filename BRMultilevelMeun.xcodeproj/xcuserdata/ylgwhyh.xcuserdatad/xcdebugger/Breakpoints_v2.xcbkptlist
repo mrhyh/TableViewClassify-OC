@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BRMultilevelMeun/MultilevelMenu/CellViewRight/MJFriendCell2TableViewCell.m"
-            timestampString = "477934701.13788"
+            filePath = "BRMultilevelMeun/MultilevelMenu/MultilevelMenu.m"
+            timestampString = "477936194.798906"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-setFriendData:"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

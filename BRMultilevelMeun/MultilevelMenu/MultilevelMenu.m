@@ -229,12 +229,17 @@
         // 1.创建cell
         MJFriendCell2TableViewCell *cell = [MJFriendCell2TableViewCell cellWithTableView:tableView];
         cell.indicatorBtn.tag = indexPath.row;
+        //cell.indicatorBtn.backgroundColor = [UIColor redColor];
         // 2.设置cell的数据
         MJFriendGroup *group = self.groups[indexPath.section];
         cell.friendData = group.friends[indexPath.row];
+        
+        NSLog(@"%@",NSStringFromCGRect(cell.indicatorBtn.frame));
         //[cell.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
         return cell;
         
+        //TODO
+        //indicatorBtn的位置不对
     }
     
 }

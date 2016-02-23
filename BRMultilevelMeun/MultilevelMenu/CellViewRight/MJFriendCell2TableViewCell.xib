@@ -33,7 +33,7 @@
                         </variation>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43e-0z-BBf">
-                        <rect key="frame" x="200" y="7" width="30" height="30"/>
+                        <rect key="frame" x="114" y="7" width="30" height="30"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="MH3-79-H6l"/>
@@ -48,7 +48,7 @@
                 <animations/>
                 <constraints>
                     <constraint firstItem="uDf-SK-1EX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="Ixc-QN-eBI"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="43e-0z-BBf" secondAttribute="trailing" constant="2" id="Rdh-ju-rfA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="43e-0z-BBf" secondAttribute="trailing" constant="88" id="Rdh-ju-rfA"/>
                     <constraint firstItem="43e-0z-BBf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="Twx-Rg-P3x"/>
                     <constraint firstAttribute="bottomMargin" secondItem="43e-0z-BBf" secondAttribute="bottom" constant="-2" id="anf-Gi-mec"/>
                     <constraint firstItem="uDf-SK-1EX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="bIY-J5-2dw"/>
