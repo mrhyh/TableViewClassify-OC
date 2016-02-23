@@ -9,7 +9,10 @@
 #import "MultilevelMenu.h"
 #import "MultilevelTableViewCell.h"
 #import "MultilevelCollectionViewCell.h"
-#import "UIImageView+WebCache.h"
+#import "MJFriendGroup.h"
+#import "MJFriend.h"
+#import "MJHeaderView.h"
+#import "MJFriendCell2TableViewCell.h"
 
 #define kCellRightLineTag 100
 #define kImageDefaultName @"tempShop"
@@ -359,7 +362,6 @@
     cell.titile.text=meun.meunName;
     cell.backgroundColor=[UIColor clearColor];
     cell.imageView.backgroundColor=UIColorFromRGB(0xF8FCF8);
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:meun.urlName] placeholderImage:[UIImage imageNamed:kImageDefaultName]];
     return cell;
 }
 
@@ -470,9 +472,6 @@
 @end
 
 
-
 @implementation rightMeun
-
-
 
 @end
