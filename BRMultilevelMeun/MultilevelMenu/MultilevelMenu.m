@@ -8,7 +8,6 @@
 
 #import "MultilevelMenu.h"
 #import "MultilevelTableViewCell.h"
-#import "MultilevelCollectionViewCell.h"
 #import "MJFriendGroup.h"
 #import "MJFriend.h"
 #import "MJHeaderView.h"
@@ -17,12 +16,11 @@
 #define kCellRightLineTag 100
 #define kImageDefaultName @"tempShop"
 #define kMultilevelCollectionViewCell @"MultilevelCollectionViewCell"
-#define kMultilevelCollectionHeader   @"CollectionHeader"//CollectionHeader
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-@interface MultilevelMenu()
+@interface MultilevelMenu() <MJHeaderViewDelegate>
 
 @property(strong,nonatomic ) UITableView * leftTablew;
 @property(strong,nonatomic ) UITableView * rightTablew;
@@ -30,8 +28,12 @@
 
 @property(assign,nonatomic) BOOL isReturnLastOffset;
 
+@property (nonatomic, strong) NSArray *groups;
+
 @end
 @implementation MultilevelMenu
+
+
 
 -(instancetype)initWithFrame:(CGRect)frame WithData:(NSArray *)data withSelectIndex:(void (^)(NSInteger, NSInteger, id))selectIndex
 {
@@ -42,12 +44,13 @@
         }
         
         _block=selectIndex;
-        self.leftSelectColor=[UIColor blackColor];
+        self.leftSelectColor=[UIColor blueColor];
         self.leftSelectBgColor=[UIColor whiteColor];
         self.leftBgColor=UIColorFromRGB(0xF3F4F6);
+        //self.leftBgColor=[UIColor whiteColor];
         self.leftSeparatorColor=UIColorFromRGB(0xE5E5E5);
         self.leftUnSelectBgColor=UIColorFromRGB(0xF3F4F6);
-        self.leftUnSelectColor=[UIColor blackColor];
+        self.leftUnSelectColor=[UIColor whiteColor];
         
         _selectIndex=0;
         _allData=data;
@@ -75,32 +78,26 @@
         /**
          右边的视图
          */
-//        UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-//        flowLayout.minimumInteritemSpacing=0.f;//左右间隔
-//        flowLayout.minimumLineSpacing=0.f;
         
         float leftMargin =0;
+//        self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
         self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
+        NSLog(@"%f",kScreenWidth-kLeftWidth-leftMargin*2);
         
         self.rightTablew.delegate=self;
         self.rightTablew.dataSource=self;
         
-//        UINib *nib=[UINib nibWithNibName:kMultilevelCollectionViewCell bundle:nil];
-//        [self.rightCollection registerNib: nib forCellWithReuseIdentifier:kMultilevelCollectionViewCell];
-        
-        
-        UINib *header=[UINib nibWithNibName:kMultilevelCollectionHeader bundle:nil];
-        [self.rightCollection registerNib:header forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kMultilevelCollectionHeader];
+        // 每一行cell的高度
+        self.rightTablew.rowHeight = 42;
+        // 每一组头部控件的高度
+        self.rightTablew.sectionHeaderHeight = 42;
+        self.rightTablew.backgroundColor=[UIColor whiteColor];
         
         [self addSubview:_rightTablew];
         
-      
         self.isReturnLastOffset=YES;
-        
-        self.rightTablew.backgroundColor=self.leftSelectBgColor;
-
         self.backgroundColor=self.leftSelectBgColor;
-        
+        //self.backgroundColor=[UIColor whiteColor];
     }
     return self;
 }
@@ -165,7 +162,7 @@
     if(_leftTablew == tableView){
         return 1;
     }else {
-        return 1;
+        return self.groups.count;;
     }
 }
 
@@ -173,14 +170,18 @@
     
     
     if(_leftTablew == tableView){
+        
         return self.allData.count;
     }else {
-        return (self.allData.count>0 ? self.allData.count : 1);
+        //return (self.allData.count>0 ? self.allData.count : 1);
+        MJFriendGroup *group = self.groups[section];
+        return (group.isOpened ? group.friends.count : 0);
     }
    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     
     if(_leftTablew == tableView){
         
@@ -205,13 +206,13 @@
         
         
         if (indexPath.row==self.selectIndex) {
-            NSLog(@"设置 点中");
+            NSLog(@"设置点中");
             [self setLeftTablewCellSelected:YES withCell:cell];
         }
         else{
             [self setLeftTablewCellSelected:NO withCell:cell];
             
-            NSLog(@"设置 不点中");
+            NSLog(@"设置不点中");
             
         }
         
@@ -225,48 +226,73 @@
         return cell;
     }else {
         
-        static NSString * identifier=@"MultilevelTableViewCell";
-        UITableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell2 == nil) {
-            cell2 = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-                cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            }
-        return cell2;
-        }
+        // 1.创建cell
+        MJFriendCell2TableViewCell *cell = [MJFriendCell2TableViewCell cellWithTableView:tableView];
+        cell.indicatorBtn.tag = indexPath.row;
+        // 2.设置cell的数据
+        MJFriendGroup *group = self.groups[indexPath.section];
+        cell.friendData = group.friends[indexPath.row];
+        //[cell.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
+        return cell;
+        
+    }
+    
 }
 
+/**
+ *  返回每一组需要显示的头部标题(字符出纳)
+ */
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // 1.创建头部控件
+    MJHeaderView *header = [MJHeaderView headerViewWithTableView:tableView identifierWithString:[NSString stringWithFormat:@"identifier%ld",(long)section]];
+    header.tag = section;
+    header.indicatorBtn.tag = section;
+    //header.backgroundColor = [UIColor redColor];
+    header.delegate = self;
+    
+    // 2.给header设置数据(给header传递模型)
+    header.group = self.groups[section];
+    
+    return header;
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    return 42;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-   
-//    MultilevelTableViewCell * BeforeCell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:_selectIndex]];
-//
-//    [self setLeftTablewCellSelected:NO withCell:BeforeCell];
-    _selectIndex=indexPath.row;
-    
-    [self setLeftTablewCellSelected:YES withCell:cell];
-
-    rightMeun * title=self.allData[indexPath.row];
-    
-    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
-    self.isReturnLastOffset=NO;
-    
-    
-    [self.rightTablew reloadData];
-
-    
-    if (self.isRecordLastScroll) {
-        [self.rightTablew scrollRectToVisible:CGRectMake(0, title.offsetScorller, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
-    }
-    else{
+    if(self.leftTablew == tableView){
+        MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
         
-         [self.rightTablew scrollRectToVisible:CGRectMake(0, 0, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
+        //    MultilevelTableViewCell * BeforeCell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:_selectIndex]];
+        //
+        //    [self setLeftTablewCellSelected:NO withCell:BeforeCell];
+        _selectIndex=indexPath.row;
+        
+        [self setLeftTablewCellSelected:YES withCell:cell];
+        
+        rightMeun * title=self.allData[indexPath.row];
+        
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        
+        self.isReturnLastOffset=NO;
+        
+        [self.rightTablew reloadData];
+        
+        
+        if (self.isRecordLastScroll) {
+            [self.rightTablew scrollRectToVisible:CGRectMake(0, title.offsetScorller, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
+        }
+        else{
+            
+            [self.rightTablew scrollRectToVisible:CGRectMake(0, 0, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
+        }
+
+    }else{
+        //NSLog(@"rightTableView.indexPath%ld",(long)indexPath.row);
+        NSLog(@"rightTableCellSelect...");
     }
     
 
@@ -275,145 +301,20 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-//    cell.titile.textColor=self.leftUnSelectColor;
-//    UILabel * line=(UILabel*)[cell viewWithTag:100];
-//    line.backgroundColor=tableView.separatorColor;
-
-    [self setLeftTablewCellSelected:NO withCell:cell];
-
-    cell.backgroundColor=self.leftUnSelectBgColor;
-}
-
-#pragma mark---imageCollectionView--------------------------
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
-    
-    if (self.allData.count==0) {
-        return 0;
-    }
-    
-    rightMeun * title=self.allData[self.selectIndex];
-     return   title.nextArray.count;
-    
-    
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    rightMeun * title=self.allData[self.selectIndex];
-    if (title.nextArray.count>0) {
+    if(self.leftTablew == tableView){
+        MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+        //    cell.titile.textColor=self.leftUnSelectColor;
+        //    UILabel * line=(UILabel*)[cell viewWithTag:100];
+        //    line.backgroundColor=tableView.separatorColor;
         
-        rightMeun *sub=title.nextArray[section];
+        [self setLeftTablewCellSelected:NO withCell:cell];
         
-        if (sub.nextArray.count==0)//没有下一级
-        {
-            return 1;
-        }
-        else
-            return sub.nextArray.count;
-        
-    }
-    else{
-    return title.nextArray.count;
-    }
-}
+        cell.backgroundColor=self.leftUnSelectBgColor;
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    rightMeun * title=self.allData[self.selectIndex];
-    NSArray * list;
-    
-    
-    
-    rightMeun * meun;
-    
-    meun=title.nextArray[indexPath.section];
-    
-    if (meun.nextArray.count>0) {
-        meun=title.nextArray[indexPath.section];
-        list=meun.nextArray;
-        meun=list[indexPath.row];
-    }
-
-
-    void (^select)(NSInteger left,NSInteger right,id info) = self.block;
-    
-    select(self.selectIndex,indexPath.row,meun);
-    
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    MultilevelCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:kMultilevelCollectionViewCell forIndexPath:indexPath];
-    rightMeun * title=self.allData[self.selectIndex];
-    NSArray * list;
-    
-    rightMeun * meun;
-
-    meun=title.nextArray[indexPath.section];
-
-    if (meun.nextArray.count>0) {
-        meun=title.nextArray[indexPath.section];
-        list=meun.nextArray;
-        meun=list[indexPath.row];
-    }
-    
-    cell.titile.text=meun.meunName;
-    cell.backgroundColor=[UIColor clearColor];
-    cell.imageView.backgroundColor=UIColorFromRGB(0xF8FCF8);
-    return cell;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    NSString *reuseIdentifier;
-    if ([kind isEqualToString: UICollectionElementKindSectionFooter ]){
-        reuseIdentifier = @"footer";
     }else{
-        reuseIdentifier = kMultilevelCollectionHeader;
+        NSLog(@"rightTableViewCellDidSelect...");
     }
-    
-    rightMeun * title=self.allData[self.selectIndex];
-    
-    UICollectionReusableView *view =  [collectionView dequeueReusableSupplementaryViewOfKind :kind   withReuseIdentifier:reuseIdentifier   forIndexPath:indexPath];
-    
-    UILabel *label = (UILabel *)[view viewWithTag:1];
-    label.font=[UIFont systemFontOfSize:15];
-    label.textColor=UIColorFromRGB(0x686868);
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]){
-        
-        if (title.nextArray.count>0) {
-
-        
-            rightMeun * meun;
-            meun=title.nextArray[indexPath.section];
-            
-            label.text=meun.meunName;
-
-        }
-        else{
-            label.text=@"暂无";
-        }
-    }
-    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        view.backgroundColor = [UIColor lightGrayColor];
-        label.text = [NSString stringWithFormat:@"这是footer:%ld",(long)indexPath.section];
-    }
-    return view;
 }
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(60, 90);
-}
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-}
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    CGSize size={kScreenWidth,44};
-    return size;
-}
-
 
 #pragma mark---记录滑动的坐标
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -469,8 +370,46 @@
     dispatch_after(popTime, dispatch_get_main_queue(), block);
 }
 
-@end
 
+- (NSArray *)groups
+{
+    if (_groups == nil) {
+        NSArray *dictArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"friends.plist" ofType:nil]];
+        
+        NSMutableArray *groupArray = [NSMutableArray array];
+        for (NSDictionary *dict in dictArray) {
+            MJFriendGroup *group = [MJFriendGroup groupWithDict:dict];
+            [groupArray addObject:group];
+        }
+        
+        _groups = groupArray;
+    }
+    return _groups;
+}
+
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+
+#pragma mark - headerView的代理方法
+
+/**
+ *  点击了headerView上面的名字按钮时就会调用
+ */
+- (void)headerViewDidClickedNameView:(MJHeaderView *)headerView
+{
+    [self.rightTablew reloadData];
+}
+
+
+
+
+
+
+@end
 
 @implementation rightMeun
 

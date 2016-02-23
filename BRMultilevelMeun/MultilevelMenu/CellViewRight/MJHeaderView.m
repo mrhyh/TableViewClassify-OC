@@ -75,6 +75,7 @@
         _indicatorBtn.imageView.clipsToBounds = NO;
         
         [self.contentView addSubview:_indicatorBtn];
+
         self.nameView = _indicatorBtn;
         
         // 2.添加好友数

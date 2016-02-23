@@ -10,7 +10,7 @@
 
 #define kLeftWidth 100
 
-@interface MultilevelMenu : UIView<UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface MultilevelMenu : UIView<UITableViewDataSource,UITableViewDelegate>
 
 @property(strong,nonatomic,readonly) NSArray * allData;
 

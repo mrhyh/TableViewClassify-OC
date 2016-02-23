@@ -23,7 +23,6 @@
     
     NSMutableArray * lis=[NSMutableArray arrayWithCapacity:0];
     
-   
     /**
      *  构建需要数据 2层或者3层数据 (ps 2层也当作3层来处理)
      */
@@ -80,8 +79,8 @@
     
     
     view.needToScorllerIndex=0;
-
     view.isRecordLastScroll=YES;
+    
     [self.view addSubview:view];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -89,6 +88,7 @@
 {
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
