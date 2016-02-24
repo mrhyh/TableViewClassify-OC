@@ -7,11 +7,11 @@
 //
 
 #import "MultilevelMenu.h"
-#import "MultilevelTableViewCell.h"
 #import "MJFriendGroup.h"
 #import "MJFriend.h"
 #import "MJHeaderView.h"
-#import "MJFriendCell2TableViewCell.h"
+#import "RightTableViewCell.h"
+#import "LeftTableViewCell.h"
 #import "Common.h"
 
 #define kCellRightLineTag 100
@@ -42,24 +42,17 @@
             return nil;
         }
         
-        
-        [_rightTablew setSeparatorInset:UIEdgeInsetsZero];
-        [_rightTablew setLayoutMargins:UIEdgeInsetsZero];
-        
         _block=selectIndex;
         self.leftSelectColor=[UIColor blueColor];
         self.leftSelectBgColor=[UIColor whiteColor];
-        //self.leftBgColor=UIColorFromRGB(0xF3F4F6);
         self.leftBgColor=[UIColor whiteColor];
-        //self.leftBgColor=[UIColor whiteColor];
-        self.leftSeparatorColor=RGB(249, 250, 250);
+        self.leftSeparatorColor=[UIColor redColor];
         //self.leftUnSelectBgColor=UIColorFromRGB(0xF3F4F6);
         self.leftUnSelectBgColor=[UIColor whiteColor];
         self.leftUnSelectColor=[UIColor blackColor];
         
         _selectIndex=0;
         _allData=data;
-        
         
         /**
          左边的视图
@@ -86,9 +79,11 @@
          */
         
         float leftMargin =0;
-//        self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
         self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
         
+        [_rightTablew setSeparatorInset:UIEdgeInsetsZero];
+        [_rightTablew setLayoutMargins:UIEdgeInsetsZero];
+
         self.rightTablew.delegate=self;
         self.rightTablew.dataSource=self;
         
@@ -135,6 +130,7 @@
 -(void)setLeftSeparatorColor:(UIColor *)leftSeparatorColor{
     _leftSeparatorColor=leftSeparatorColor;
     self.leftTablew.separatorColor=leftSeparatorColor;
+    self.leftTablew.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
 }
 -(void)reloadData{
     
@@ -142,23 +138,16 @@
     [self.rightTablew reloadData];
     
 }
--(void)setLeftTablewCellSelected:(BOOL)selected withCell:(MultilevelTableViewCell*)cell
+-(void)setLeftTablewCellSelected:(BOOL)selected withCell:(LeftTableViewCell *)cell
 {
-    UILabel * line=(UILabel*)[cell viewWithTag:kCellRightLineTag];
     if (selected) {
-        
-        line.backgroundColor=cell.backgroundColor;
-        cell.titile.textColor=self.leftSelectColor;
-        cell.backgroundColor=self.leftSelectBgColor;
+        cell.titleLabel.textColor=self.leftSelectColor;
+        cell.selectView.hidden = NO;
     }
     else{
-        
-        cell.titile.textColor=self.leftUnSelectColor;
-        cell.backgroundColor=self.leftUnSelectBgColor;
-        line.backgroundColor=_leftTablew.separatorColor;
+        cell.titleLabel.textColor=self.leftUnSelectColor;
+        cell.selectView.hidden = YES;
     }
-   
-
 }
 
 #pragma mark---左边的tablew 代理
@@ -188,6 +177,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    /*
     if(_leftTablew == tableView){
         
         static NSString * Identifier=@"MultilevelTableViewCell";
@@ -198,8 +188,12 @@
             cell=[[NSBundle mainBundle] loadNibNamed:@"MultilevelTableViewCell" owner:self options:nil][0];
         }
         
+        UIView *view = cell.selectView;
         
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
+        UILabel *label = cell.titile;
+        
         
         rightMeun *title=self.allData[indexPath.row];
         cell.titile.text=title.meunName;
@@ -224,10 +218,48 @@
         }
         
         return cell;
-    }else {
+    }
+     
+     */
+    if(_leftTablew == tableView){
         
         // 1.创建cell
-        MJFriendCell2TableViewCell *cell = [MJFriendCell2TableViewCell cellWithTableView:tableView];
+        LeftTableViewCell *cell = [LeftTableViewCell cellWithTableView:tableView];
+        
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+        
+        // 2.设置cell的数据
+        rightMeun *title = self.allData[indexPath.row];
+        cell.titleLabel.text = title.meunName;
+        
+        // 3.设置cell的选中处理事件
+        
+        if (indexPath.row==self.selectIndex) {
+            NSLog(@"设置点中");
+            [self setLeftTablewCellSelected:YES withCell:cell];
+        }
+        else{
+            [self setLeftTablewCellSelected:NO withCell:cell];
+            
+            NSLog(@"设置不点中");
+        }
+        
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            cell.layoutMargins=UIEdgeInsetsZero;
+        }
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            cell.separatorInset=UIEdgeInsetsZero;
+        }
+
+        return cell;
+
+    }
+    else {
+        
+        // 1.创建cell
+        RightTableViewCell *cell = [RightTableViewCell cellWithTableView:tableView];
         cell.indicatorBtn.tag = indexPath.row;
         
         [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -260,6 +292,8 @@
     
     // 2.给header设置数据(给header传递模型)
     header.group = self.groups[section];
+    //CGFloat temp = header.indicatorBtn.frame.size.width;
+
     
     return header;
 }
@@ -271,7 +305,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(self.leftTablew == tableView){
-        MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+        LeftTableViewCell * cell=(LeftTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
         
         //    MultilevelTableViewCell * BeforeCell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:_selectIndex]];
         //
@@ -309,7 +343,7 @@
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(self.leftTablew == tableView){
-        MultilevelTableViewCell * cell=(MultilevelTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+        LeftTableViewCell * cell=(LeftTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
         //    cell.titile.textColor=self.leftUnSelectColor;
         //    UILabel * line=(UILabel*)[cell viewWithTag:100];
         //    line.backgroundColor=tableView.separatorColor;

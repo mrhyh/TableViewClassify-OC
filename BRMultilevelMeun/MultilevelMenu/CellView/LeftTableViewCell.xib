@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LeftTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="41"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4L-6Q-wwn">
+                        <rect key="frame" x="0.0" y="0.0" width="2" height="42"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.42352941179999998" green="0.71372549019999998" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="D1E-fq-EyH"/>
+                            <constraint firstAttribute="height" constant="42" id="pMf-oO-Kak"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-9G-M5z">
+                        <rect key="frame" x="18" y="10" width="74" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="74" id="CCh-IP-uAy"/>
+                            <constraint firstAttribute="height" constant="21" id="Zpf-aV-pbg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="zb8-9G-M5z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="5G8-iU-KNd"/>
+                    <constraint firstItem="zb8-9G-M5z" firstAttribute="leading" secondItem="m4L-6Q-wwn" secondAttribute="trailing" constant="16" id="EuS-Wr-qgS"/>
+                    <constraint firstItem="m4L-6Q-wwn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="F8G-sh-Wgp"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zb8-9G-M5z" secondAttribute="bottom" constant="2" id="K4g-3S-INN"/>
+                    <constraint firstItem="m4L-6Q-wwn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="njb-OO-2nw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="m4L-6Q-wwn" secondAttribute="bottom" constant="-9" id="qjk-YV-6pu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="selectView" destination="m4L-6Q-wwn" id="5p1-vh-OaN"/>
+                <outlet property="titleLabel" destination="zb8-9G-M5z" id="3bd-bh-IN4"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="179"/>
+        </tableViewCell>
+    </objects>
+</document>

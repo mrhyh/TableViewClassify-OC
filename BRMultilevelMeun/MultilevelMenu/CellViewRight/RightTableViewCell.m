@@ -6,9 +6,9 @@
 //  Copyright © 2016年 itcast. All rights reserved.
 //
 
-#import "MJFriendCell2TableViewCell.h"
+#import "RightTableViewCell.h"
 
-@implementation MJFriendCell2TableViewCell
+@implementation RightTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -26,10 +26,10 @@
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
     static NSString *ID = @"friend";
-    MJFriendCell2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    RightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         // 从xib中加载cell
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"MJFriendCell2TableViewCell" owner:nil options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"RightTableViewCell" owner:nil options:nil] lastObject];
     }
     
     return cell;

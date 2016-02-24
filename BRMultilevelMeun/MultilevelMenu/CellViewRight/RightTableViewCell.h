@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MJFriend.h"
 
-@interface MJFriendCell2TableViewCell : UITableViewCell
+@interface RightTableViewCell : UITableViewCell
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

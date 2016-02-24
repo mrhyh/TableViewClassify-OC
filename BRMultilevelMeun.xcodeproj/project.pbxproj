@@ -14,13 +14,14 @@
 		66BCC0CB1AE03C160029F30F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66BCC0CA1AE03C160029F30F /* Images.xcassets */; };
 		66BCC0CE1AE03C160029F30F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66BCC0CC1AE03C160029F30F /* LaunchScreen.xib */; };
 		66BCC0DA1AE03C160029F30F /* BRMultilevelMeunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0D91AE03C160029F30F /* BRMultilevelMeunTests.m */; };
-		66BCC0F51AE03C6F0029F30F /* MultilevelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0ED1AE03C6F0029F30F /* MultilevelTableViewCell.m */; };
-		66BCC0F61AE03C6F0029F30F /* MultilevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66BCC0EE1AE03C6F0029F30F /* MultilevelTableViewCell.xib */; };
 		66BCC0F71AE03C6F0029F30F /* MultilevelMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */; };
 		EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB11C1761C7C81DD00EA52E0 /* friends.plist */; };
-		EB296F911C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */; };
+		EB296F911C7D7A6300CDB69F /* RightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */; };
+		EB296F9C1C7D9D4E00CDB69F /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */; };
+		EB296F9D1C7D9D4E00CDB69F /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */; };
+		EB296FA11C7DA32B00CDB69F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EB296FA01C7DA32B00CDB69F /* UIColor+Hex.m */; };
 		EB5188861C7C55FA0099FDBB /* MJFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188801C7C55FA0099FDBB /* MJFriendCell.m */; };
-		EB5188871C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */; };
+		EB5188871C7C55FA0099FDBB /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */; };
 		EB5188891C7C55FA0099FDBB /* MJHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188851C7C55FA0099FDBB /* MJHeaderView.m */; };
 		EB51888F1C7C563B0099FDBB /* MJFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51888C1C7C563B0099FDBB /* MJFriend.m */; };
 		EB5188901C7C563B0099FDBB /* MJFriendGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51888E1C7C563B0099FDBB /* MJFriendGroup.m */; };
@@ -50,18 +51,20 @@
 		66BCC0D31AE03C160029F30F /* BRMultilevelMeunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRMultilevelMeunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66BCC0D81AE03C160029F30F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66BCC0D91AE03C160029F30F /* BRMultilevelMeunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMultilevelMeunTests.m; sourceTree = "<group>"; };
-		66BCC0EC1AE03C6F0029F30F /* MultilevelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilevelTableViewCell.h; sourceTree = "<group>"; };
-		66BCC0ED1AE03C6F0029F30F /* MultilevelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilevelTableViewCell.m; sourceTree = "<group>"; };
-		66BCC0EE1AE03C6F0029F30F /* MultilevelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultilevelTableViewCell.xib; sourceTree = "<group>"; };
 		66BCC0EF1AE03C6F0029F30F /* MultilevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilevelMenu.h; sourceTree = "<group>"; };
 		66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilevelMenu.m; sourceTree = "<group>"; };
 		EB11C1761C7C81DD00EA52E0 /* friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friends.plist; sourceTree = "<group>"; };
-		EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJFriendCell2TableViewCell.xib; sourceTree = "<group>"; };
-		EB296F981C7D983700CDB69F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightTableViewCell.xib; sourceTree = "<group>"; };
+		EB296F981C7D983700CDB69F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = MultilevelMenu/Common.h; sourceTree = "<group>"; };
+		EB296F991C7D9D4E00CDB69F /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
+		EB296F9F1C7DA32B00CDB69F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		EB296FA01C7DA32B00CDB69F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		EB51887F1C7C55FA0099FDBB /* MJFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendCell.h; sourceTree = "<group>"; };
 		EB5188801C7C55FA0099FDBB /* MJFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendCell.m; sourceTree = "<group>"; };
-		EB5188811C7C55FA0099FDBB /* MJFriendCell2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendCell2TableViewCell.h; sourceTree = "<group>"; };
-		EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendCell2TableViewCell.m; sourceTree = "<group>"; };
+		EB5188811C7C55FA0099FDBB /* RightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightTableViewCell.h; sourceTree = "<group>"; };
+		EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightTableViewCell.m; sourceTree = "<group>"; };
 		EB5188841C7C55FA0099FDBB /* MJHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJHeaderView.h; sourceTree = "<group>"; };
 		EB5188851C7C55FA0099FDBB /* MJHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJHeaderView.m; sourceTree = "<group>"; };
 		EB51888B1C7C563B0099FDBB /* MJFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriend.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 		66BCC0BC1AE03C160029F30F /* BRMultilevelMeun */ = {
 			isa = PBXGroup;
 			children = (
+				EB296F981C7D983700CDB69F /* Common.h */,
+				EB296F9E1C7DA31C00CDB69F /* Category */,
 				66BCC0E41AE03C6F0029F30F /* MultilevelMenu */,
 				66BCC0C11AE03C160029F30F /* AppDelegate.h */,
 				66BCC0C21AE03C160029F30F /* AppDelegate.m */,
@@ -152,7 +157,6 @@
 		66BCC0E41AE03C6F0029F30F /* MultilevelMenu */ = {
 			isa = PBXGroup;
 			children = (
-				EB296F981C7D983700CDB69F /* Common.h */,
 				EB51888A1C7C56250099FDBB /* Model */,
 				EB51887E1C7C55DF0099FDBB /* CellViewRight */,
 				66BCC0E51AE03C6F0029F30F /* CellView */,
@@ -165,11 +169,21 @@
 		66BCC0E51AE03C6F0029F30F /* CellView */ = {
 			isa = PBXGroup;
 			children = (
-				66BCC0EC1AE03C6F0029F30F /* MultilevelTableViewCell.h */,
-				66BCC0ED1AE03C6F0029F30F /* MultilevelTableViewCell.m */,
-				66BCC0EE1AE03C6F0029F30F /* MultilevelTableViewCell.xib */,
+				EB296F991C7D9D4E00CDB69F /* LeftTableViewCell.h */,
+				EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */,
+				EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */,
 			);
 			path = CellView;
+			sourceTree = "<group>";
+		};
+		EB296F9E1C7DA31C00CDB69F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EB296F9F1C7DA32B00CDB69F /* UIColor+Hex.h */,
+				EB296FA01C7DA32B00CDB69F /* UIColor+Hex.m */,
+			);
+			name = Category;
+			path = MultilevelMenu/Category;
 			sourceTree = "<group>";
 		};
 		EB51887E1C7C55DF0099FDBB /* CellViewRight */ = {
@@ -177,9 +191,9 @@
 			children = (
 				EB51887F1C7C55FA0099FDBB /* MJFriendCell.h */,
 				EB5188801C7C55FA0099FDBB /* MJFriendCell.m */,
-				EB5188811C7C55FA0099FDBB /* MJFriendCell2TableViewCell.h */,
-				EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */,
-				EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */,
+				EB5188811C7C55FA0099FDBB /* RightTableViewCell.h */,
+				EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */,
+				EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */,
 				EB5188841C7C55FA0099FDBB /* MJHeaderView.h */,
 				EB5188851C7C55FA0099FDBB /* MJHeaderView.m */,
 			);
@@ -277,10 +291,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BCC0F61AE03C6F0029F30F /* MultilevelTableViewCell.xib in Resources */,
 				66BCC0C91AE03C160029F30F /* Main.storyboard in Resources */,
 				EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */,
-				EB296F911C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib in Resources */,
+				EB296F911C7D7A6300CDB69F /* RightTableViewCell.xib in Resources */,
+				EB296F9D1C7D9D4E00CDB69F /* LeftTableViewCell.xib in Resources */,
 				66BCC0CE1AE03C160029F30F /* LaunchScreen.xib in Resources */,
 				66BCC0CB1AE03C160029F30F /* Images.xcassets in Resources */,
 			);
@@ -301,11 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5188901C7C563B0099FDBB /* MJFriendGroup.m in Sources */,
-				66BCC0F51AE03C6F0029F30F /* MultilevelTableViewCell.m in Sources */,
+				EB296FA11C7DA32B00CDB69F /* UIColor+Hex.m in Sources */,
 				66BCC0C61AE03C160029F30F /* ViewController.m in Sources */,
-				EB5188871C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m in Sources */,
+				EB5188871C7C55FA0099FDBB /* RightTableViewCell.m in Sources */,
 				66BCC0C31AE03C160029F30F /* AppDelegate.m in Sources */,
 				EB5188861C7C55FA0099FDBB /* MJFriendCell.m in Sources */,
+				EB296F9C1C7D9D4E00CDB69F /* LeftTableViewCell.m in Sources */,
 				EB5188891C7C55FA0099FDBB /* MJHeaderView.m in Sources */,
 				66BCC0F71AE03C6F0029F30F /* MultilevelMenu.m in Sources */,
 				EB51888F1C7C563B0099FDBB /* MJFriend.m in Sources */,

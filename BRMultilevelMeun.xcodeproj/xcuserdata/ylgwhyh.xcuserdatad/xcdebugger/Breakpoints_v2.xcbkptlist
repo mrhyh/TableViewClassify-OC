@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BRMultilevelMeun/MultilevelMenu/CellView/MultilevelTableViewCell.m"
-            timestampString = "477992811.172289"
+            filePath = "BRMultilevelMeun/MultilevelMenu/MultilevelMenu.m"
+            timestampString = "478019260.701908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "-setSelected:animated:"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "-tableView:viewForHeaderInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

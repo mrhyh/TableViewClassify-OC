@@ -18,14 +18,14 @@
 
 @implementation MJHeaderView
 
-+ (instancetype)headerViewWithTableView:(UITableView *)tableView identifierWithString:(NSString *)identifier
-{
++ (instancetype)headerViewWithTableView:(UITableView *)tableView identifierWithString:(NSString *)identifier {
     //static NSString *ID = @"header";
     NSString *ID = identifier;
     MJHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
     if (header == nil) {
         header = [[MJHeaderView alloc] initWithReuseIdentifier:ID];
     }
+  
     return header;
 }
 
@@ -56,7 +56,7 @@
         // 设置按钮的内边距
         _indicatorBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         _indicatorBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        _indicatorBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 245, 0, 0);
+        _indicatorBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 235, 0, 0);
         
         // 设置按钮内部的imageView的内容模式为居中
         _indicatorBtn.imageView.contentMode = UIViewContentModeCenter;
@@ -113,11 +113,10 @@
     // 1.设置按钮的frame
     self.nameBtn.frame = self.bounds;
     
-    CGRect btnFrame = self.bounds;
-    btnFrame.size.width = 245;
-    //btnFrame.origin.x = 227;
-    self.nameBtn.frame = btnFrame;
-    
+//    CGRect btnFrame = self.bounds;
+//    btnFrame.size.width = 245;
+//    //btnFrame.origin.x = 227;
+//    self.nameBtn.frame = btnFrame;
     
     // 2.设置好友数的frame
     CGFloat countY = 0;
@@ -133,7 +132,6 @@
     
     // 1.设置按钮文字(组名)
     [self.nameBtn setTitle:group.name forState:UIControlStateNormal];
-    
     // 2.设置好友数(在线数/总数)
     self.countView.text = [NSString stringWithFormat:@"%d/%lu", group.online, (unsigned long)group.friends.count];
     self.countView.text = nil;
