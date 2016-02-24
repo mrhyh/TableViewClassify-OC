@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,18 +15,94 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ2-ih-FZh">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuE-D0-hjn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.59607843137254901" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="7cn-zJ-qU0"/>
+                            <constraint firstAttribute="width" constant="3" id="zXz-Ql-Ves">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7cn-zJ-qU0"/>
+                                <exclude reference="zXz-Ql-Ves"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="7cn-zJ-qU0"/>
+                                <include reference="zXz-Ql-Ves"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ2-ih-FZh">
                         <rect key="frame" x="0.0" y="11" width="100" height="21"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="74" id="9QM-I4-1ke"/>
+                            <constraint firstAttribute="height" constant="21" id="FQN-Oi-ZwG"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9QM-I4-1ke"/>
+                                <exclude reference="FQN-Oi-ZwG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="9QM-I4-1ke"/>
+                                <include reference="FQN-Oi-ZwG"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <animations/>
+                <constraints>
+                    <constraint firstItem="eJ2-ih-FZh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="D2L-ac-lzF"/>
+                    <constraint firstItem="zuE-D0-hjn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="F9y-o8-9N4"/>
+                    <constraint firstItem="eJ2-ih-FZh" firstAttribute="leading" secondItem="zuE-D0-hjn" secondAttribute="trailing" constant="11" id="Fen-bI-tRf">
+                        <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                    </constraint>
+                    <constraint firstItem="zuE-D0-hjn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="LiN-hJ-Dbz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zuE-D0-hjn" secondAttribute="bottom" constant="-9" id="fEU-cG-Bz0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eJ2-ih-FZh" secondAttribute="bottom" constant="2" id="zlh-jK-J2B"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="zuE-D0-hjn"/>
+                    </mask>
+                    <mask key="constraints">
+                        <exclude reference="F9y-o8-9N4"/>
+                        <exclude reference="LiN-hJ-Dbz"/>
+                        <exclude reference="fEU-cG-Bz0"/>
+                        <exclude reference="D2L-ac-lzF"/>
+                        <exclude reference="Fen-bI-tRf"/>
+                        <exclude reference="zlh-jK-J2B"/>
+                    </mask>
+                </variation>
+                <variation key="heightClass=compact-widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="zuE-D0-hjn"/>
+                    </mask>
+                    <mask key="constraints">
+                        <include reference="F9y-o8-9N4"/>
+                        <include reference="LiN-hJ-Dbz"/>
+                        <include reference="fEU-cG-Bz0"/>
+                        <include reference="D2L-ac-lzF"/>
+                        <include reference="Fen-bI-tRf"/>
+                        <include reference="zlh-jK-J2B"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="selectView" destination="zuE-D0-hjn" id="RI2-eR-2fV"/>
                 <outlet property="titile" destination="eJ2-ih-FZh" id="3Yc-bX-JM4"/>
             </connections>
         </tableViewCell>

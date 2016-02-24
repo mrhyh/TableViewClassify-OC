@@ -18,9 +18,9 @@
 		66BCC0F61AE03C6F0029F30F /* MultilevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66BCC0EE1AE03C6F0029F30F /* MultilevelTableViewCell.xib */; };
 		66BCC0F71AE03C6F0029F30F /* MultilevelMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */; };
 		EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB11C1761C7C81DD00EA52E0 /* friends.plist */; };
+		EB296F911C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */; };
 		EB5188861C7C55FA0099FDBB /* MJFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188801C7C55FA0099FDBB /* MJFriendCell.m */; };
 		EB5188871C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */; };
-		EB5188881C7C55FA0099FDBB /* MJFriendCell2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5188831C7C55FA0099FDBB /* MJFriendCell2TableViewCell.xib */; };
 		EB5188891C7C55FA0099FDBB /* MJHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188851C7C55FA0099FDBB /* MJHeaderView.m */; };
 		EB51888F1C7C563B0099FDBB /* MJFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51888C1C7C563B0099FDBB /* MJFriend.m */; };
 		EB5188901C7C563B0099FDBB /* MJFriendGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51888E1C7C563B0099FDBB /* MJFriendGroup.m */; };
@@ -56,11 +56,12 @@
 		66BCC0EF1AE03C6F0029F30F /* MultilevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilevelMenu.h; sourceTree = "<group>"; };
 		66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilevelMenu.m; sourceTree = "<group>"; };
 		EB11C1761C7C81DD00EA52E0 /* friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friends.plist; sourceTree = "<group>"; };
+		EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJFriendCell2TableViewCell.xib; sourceTree = "<group>"; };
+		EB296F981C7D983700CDB69F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		EB51887F1C7C55FA0099FDBB /* MJFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendCell.h; sourceTree = "<group>"; };
 		EB5188801C7C55FA0099FDBB /* MJFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendCell.m; sourceTree = "<group>"; };
 		EB5188811C7C55FA0099FDBB /* MJFriendCell2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendCell2TableViewCell.h; sourceTree = "<group>"; };
 		EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendCell2TableViewCell.m; sourceTree = "<group>"; };
-		EB5188831C7C55FA0099FDBB /* MJFriendCell2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJFriendCell2TableViewCell.xib; sourceTree = "<group>"; };
 		EB5188841C7C55FA0099FDBB /* MJHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJHeaderView.h; sourceTree = "<group>"; };
 		EB5188851C7C55FA0099FDBB /* MJHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJHeaderView.m; sourceTree = "<group>"; };
 		EB51888B1C7C563B0099FDBB /* MJFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriend.h; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		66BCC0E41AE03C6F0029F30F /* MultilevelMenu */ = {
 			isa = PBXGroup;
 			children = (
+				EB296F981C7D983700CDB69F /* Common.h */,
 				EB51888A1C7C56250099FDBB /* Model */,
 				EB51887E1C7C55DF0099FDBB /* CellViewRight */,
 				66BCC0E51AE03C6F0029F30F /* CellView */,
@@ -177,7 +179,7 @@
 				EB5188801C7C55FA0099FDBB /* MJFriendCell.m */,
 				EB5188811C7C55FA0099FDBB /* MJFriendCell2TableViewCell.h */,
 				EB5188821C7C55FA0099FDBB /* MJFriendCell2TableViewCell.m */,
-				EB5188831C7C55FA0099FDBB /* MJFriendCell2TableViewCell.xib */,
+				EB296F901C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib */,
 				EB5188841C7C55FA0099FDBB /* MJHeaderView.h */,
 				EB5188851C7C55FA0099FDBB /* MJHeaderView.m */,
 			);
@@ -278,9 +280,9 @@
 				66BCC0F61AE03C6F0029F30F /* MultilevelTableViewCell.xib in Resources */,
 				66BCC0C91AE03C160029F30F /* Main.storyboard in Resources */,
 				EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */,
+				EB296F911C7D7A6300CDB69F /* MJFriendCell2TableViewCell.xib in Resources */,
 				66BCC0CE1AE03C160029F30F /* LaunchScreen.xib in Resources */,
 				66BCC0CB1AE03C160029F30F /* Images.xcassets in Resources */,
-				EB5188881C7C55FA0099FDBB /* MJFriendCell2TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

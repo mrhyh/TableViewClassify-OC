@@ -15,11 +15,10 @@
 {
     static NSString *ID = @"friend";
     MJFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
     if (cell == nil) {
         cell = [[MJFriendCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    
-
     
     return cell;
 }
@@ -28,7 +27,7 @@
 {
     _friendData = friendData;
     
-    self.imageView.image = [UIImage imageNamed:friendData.icon];
+    //self.imageView.image = [UIImage imageNamed:friendData.icon];
     self.textLabel.text = friendData.name;
     self.textLabel.textColor = friendData.isVip ? [UIColor redColor] : [UIColor blackColor];
     //self.detailTextLabel.text = friendData.intro;

@@ -12,6 +12,7 @@
 #import "MJFriend.h"
 #import "MJHeaderView.h"
 #import "MJFriendCell2TableViewCell.h"
+#import "Common.h"
 
 #define kCellRightLineTag 100
 #define kImageDefaultName @"tempShop"
@@ -22,13 +23,11 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @interface MultilevelMenu() <MJHeaderViewDelegate>
 
-@property(strong,nonatomic ) UITableView * leftTablew;
-@property(strong,nonatomic ) UITableView * rightTablew;
-@property(strong,nonatomic ) UICollectionView * rightCollection;
+@property(strong, nonatomic ) UITableView * leftTablew;
+@property(strong, nonatomic ) UITableView * rightTablew;
 
-@property(assign,nonatomic) BOOL isReturnLastOffset;
-
-@property (nonatomic, strong) NSArray *groups;
+@property(assign, nonatomic) BOOL isReturnLastOffset;
+@property(strong, nonatomic) NSArray *groups;
 
 @end
 @implementation MultilevelMenu
@@ -43,14 +42,20 @@
             return nil;
         }
         
+        
+        [_rightTablew setSeparatorInset:UIEdgeInsetsZero];
+        [_rightTablew setLayoutMargins:UIEdgeInsetsZero];
+        
         _block=selectIndex;
         self.leftSelectColor=[UIColor blueColor];
         self.leftSelectBgColor=[UIColor whiteColor];
-        self.leftBgColor=UIColorFromRGB(0xF3F4F6);
+        //self.leftBgColor=UIColorFromRGB(0xF3F4F6);
+        self.leftBgColor=[UIColor whiteColor];
         //self.leftBgColor=[UIColor whiteColor];
-        self.leftSeparatorColor=UIColorFromRGB(0xE5E5E5);
-        self.leftUnSelectBgColor=UIColorFromRGB(0xF3F4F6);
-        self.leftUnSelectColor=[UIColor whiteColor];
+        self.leftSeparatorColor=RGB(249, 250, 250);
+        //self.leftUnSelectBgColor=UIColorFromRGB(0xF3F4F6);
+        self.leftUnSelectBgColor=[UIColor whiteColor];
+        self.leftUnSelectColor=[UIColor blackColor];
         
         _selectIndex=0;
         _allData=data;
@@ -65,6 +70,7 @@
         
         self.leftTablew.tableFooterView=[[UIView alloc] init];
         [self addSubview:self.leftTablew];
+        
         self.leftTablew.backgroundColor=self.leftBgColor;
         if ([self.leftTablew respondsToSelector:@selector(setLayoutMargins:)]) {
             self.leftTablew.layoutMargins=UIEdgeInsetsZero;
@@ -82,7 +88,6 @@
         float leftMargin =0;
 //        self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
         self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
-        NSLog(@"%f",kScreenWidth-kLeftWidth-leftMargin*2);
         
         self.rightTablew.delegate=self;
         self.rightTablew.dataSource=self;
@@ -189,19 +194,14 @@
         MultilevelTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         
-        if (!cell) {
+        if (cell==nil) {
             cell=[[NSBundle mainBundle] loadNibNamed:@"MultilevelTableViewCell" owner:self options:nil][0];
-            
-            UILabel * label=[[UILabel alloc] initWithFrame:CGRectMake(kLeftWidth-0.5, 0, 0.5, 44)];
-            label.backgroundColor=tableView.separatorColor;
-            [cell addSubview:label];
-            label.tag=kCellRightLineTag;
         }
         
         
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        rightMeun * title=self.allData[indexPath.row];
         
+        rightMeun *title=self.allData[indexPath.row];
         cell.titile.text=title.meunName;
         
         
@@ -229,13 +229,15 @@
         // 1.创建cell
         MJFriendCell2TableViewCell *cell = [MJFriendCell2TableViewCell cellWithTableView:tableView];
         cell.indicatorBtn.tag = indexPath.row;
-        //cell.indicatorBtn.backgroundColor = [UIColor redColor];
+        
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+        
         // 2.设置cell的数据
         MJFriendGroup *group = self.groups[indexPath.section];
         cell.friendData = group.friends[indexPath.row];
         
         NSLog(@"%@",NSStringFromCGRect(cell.indicatorBtn.frame));
-        //[cell.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
         return cell;
         
         //TODO
@@ -406,7 +408,7 @@
  */
 - (void)headerViewDidClickedNameView:(MJHeaderView *)headerView
 {
-    [self.rightTablew reloadData];
+    [_rightTablew reloadData];
 }
 
 

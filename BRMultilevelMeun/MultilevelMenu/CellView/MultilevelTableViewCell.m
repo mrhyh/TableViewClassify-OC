@@ -17,10 +17,15 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
+    if(selected == YES){
+        _selectView.hidden = NO;
+    }else{
+        _selectView.hidden = YES;
+    }
     // Configure the view for the selected state
 }
 
--(void)setZero{
+- (void)setZero{
     if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
         self.layoutMargins=UIEdgeInsetsZero;
     }
@@ -28,5 +33,9 @@
         self.separatorInset=UIEdgeInsetsZero;
     }
 
+}
+
+- (void)setTitile:(UILabel *)titile{
+    _titile = titile;
 }
 @end

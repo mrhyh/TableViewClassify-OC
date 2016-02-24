@@ -72,16 +72,16 @@
      
      :returns: <#return value description#>
      */
-    MultilevelMenu * view=[[MultilevelMenu alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) WithData:lis withSelectIndex:^(NSInteger left, NSInteger right,rightMeun* info) {
+    MultilevelMenu * menuView=[[MultilevelMenu alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) WithData:lis withSelectIndex:^(NSInteger left, NSInteger right,rightMeun* info) {
         
         NSLog(@"点击的 菜单%@",info.meunName);
     }];
     
     
-    view.needToScorllerIndex=0;
-    view.isRecordLastScroll=YES;
+    menuView.needToScorllerIndex=0;
+    menuView.isRecordLastScroll=YES;
     
-    [self.view addSubview:view];
+    [self.view addSubview:menuView];
     // Do any additional setup after loading the view, typically from a nib.
 }
 -(void)viewWillAppear:(BOOL)animated
