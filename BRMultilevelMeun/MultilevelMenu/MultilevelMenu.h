@@ -14,7 +14,6 @@
 
 @property(strong,nonatomic,readonly) NSArray * allData;
 
-
 @property(copy,nonatomic,readonly) id block;
 
 /**

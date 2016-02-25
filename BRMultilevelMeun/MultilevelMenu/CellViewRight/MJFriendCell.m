@@ -8,6 +8,7 @@
 
 #import "MJFriendCell.h"
 #import "MJFriend.h"
+#import "Common.h"
 
 @implementation MJFriendCell
 
@@ -29,7 +30,7 @@
     
     //self.imageView.image = [UIImage imageNamed:friendData.icon];
     self.textLabel.text = friendData.name;
-    self.textLabel.textColor = friendData.isVip ? [UIColor redColor] : [UIColor blackColor];
+    self.textLabel.textColor = TitleAndTextColor;
     //self.detailTextLabel.text = friendData.intro;
 }
 

@@ -42,12 +42,13 @@
             return nil;
         }
         
+        self.backgroundColor = AppVCBGColor;
+        
         _block=selectIndex;
         self.leftSelectColor=[UIColor blueColor];
         self.leftSelectBgColor=[UIColor whiteColor];
-        self.leftBgColor=[UIColor whiteColor];
-        self.leftSeparatorColor=[UIColor redColor];
-        //self.leftUnSelectBgColor=UIColorFromRGB(0xF3F4F6);
+        self.leftBgColor=AppVCBGColor;
+        self.leftSeparatorColor=BorDerColor1;
         self.leftUnSelectBgColor=[UIColor whiteColor];
         self.leftUnSelectColor=[UIColor blackColor];
         
@@ -60,6 +61,9 @@
         self.leftTablew=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, kLeftWidth, frame.size.height)];
         self.leftTablew.dataSource=self;
         self.leftTablew.delegate=self;
+        
+        [self.leftTablew.layer setBorderColor:BorDerColor1.CGColor];
+        [self.leftTablew.layer setBorderWidth:1.0f];
         
         self.leftTablew.tableFooterView=[[UIView alloc] init];
         [self addSubview:self.leftTablew];
@@ -80,6 +84,9 @@
         
         float leftMargin =0;
         self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
+        
+        //添加footView可以去掉尾部空白的cell
+        _rightTablew.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
         [_rightTablew setSeparatorInset:UIEdgeInsetsZero];
         [_rightTablew setLayoutMargins:UIEdgeInsetsZero];
@@ -152,6 +159,7 @@
 
 #pragma mark---左边的tablew 代理
 #pragma mark--deleagte
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if(_leftTablew == tableView){
         return 1;
@@ -176,51 +184,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    /*
-    if(_leftTablew == tableView){
-        
-        static NSString * Identifier=@"MultilevelTableViewCell";
-        MultilevelTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        
-        if (cell==nil) {
-            cell=[[NSBundle mainBundle] loadNibNamed:@"MultilevelTableViewCell" owner:self options:nil][0];
-        }
-        
-        UIView *view = cell.selectView;
-        
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        
-        UILabel *label = cell.titile;
-        
-        
-        rightMeun *title=self.allData[indexPath.row];
-        cell.titile.text=title.meunName;
-        
-        
-        if (indexPath.row==self.selectIndex) {
-            NSLog(@"设置点中");
-            [self setLeftTablewCellSelected:YES withCell:cell];
-        }
-        else{
-            [self setLeftTablewCellSelected:NO withCell:cell];
-            
-            NSLog(@"设置不点中");
-            
-        }
-        
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            cell.layoutMargins=UIEdgeInsetsZero;
-        }
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            cell.separatorInset=UIEdgeInsetsZero;
-        }
-        
-        return cell;
-    }
-     
-     */
     if(_leftTablew == tableView){
         
         // 1.创建cell
@@ -260,11 +223,9 @@
         
         // 1.创建cell
         RightTableViewCell *cell = [RightTableViewCell cellWithTableView:tableView];
+        cell.nameLabel.textColor = PromptFontColor;
         cell.indicatorBtn.tag = indexPath.row;
-        
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-        
+
         // 2.设置cell的数据
         MJFriendGroup *group = self.groups[indexPath.section];
         cell.friendData = group.friends[indexPath.row];
@@ -285,16 +246,19 @@
 {
     // 1.创建头部控件
     MJHeaderView *header = [MJHeaderView headerViewWithTableView:tableView identifierWithString:[NSString stringWithFormat:@"identifier%ld",(long)section]];
+    header.indicatorBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     header.tag = section;
     header.indicatorBtn.tag = section;
-    //header.backgroundColor = [UIColor redColor];
     header.delegate = self;
     
     // 2.给header设置数据(给header传递模型)
     header.group = self.groups[section];
-    //CGFloat temp = header.indicatorBtn.frame.size.width;
+    if(header.group.friends.count < 0){
 
-    
+        [header.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
+        
+    }
+
     return header;
 }
 
@@ -362,7 +326,6 @@
 {
     if ([scrollView isEqual:self.rightTablew]) {
 
-        
         self.isReturnLastOffset=YES;
     }
 }
@@ -375,10 +338,10 @@
         
         title.offsetScorller=scrollView.contentOffset.y;
         self.isReturnLastOffset=NO;
-        
+
     }
 
- }
+}
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([scrollView isEqual:self.rightTablew]) {
@@ -444,9 +407,6 @@
 {
     [_rightTablew reloadData];
 }
-
-
-
 
 
 

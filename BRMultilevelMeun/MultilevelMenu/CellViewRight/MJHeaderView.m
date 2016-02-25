@@ -25,6 +25,7 @@
     if (header == nil) {
         header = [[MJHeaderView alloc] initWithReuseIdentifier:ID];
     }
+    header.backgroundColor = [UIColor grayColor];
   
     return header;
 }
@@ -98,8 +99,6 @@
 
 }
 
-
-
 /**
  *  当一个控件的frame发生改变的时候就会调用
  *
@@ -112,11 +111,6 @@
     
     // 1.设置按钮的frame
     self.nameBtn.frame = self.bounds;
-    
-//    CGRect btnFrame = self.bounds;
-//    btnFrame.size.width = 245;
-//    //btnFrame.origin.x = 227;
-//    self.nameBtn.frame = btnFrame;
     
     // 2.设置好友数的frame
     CGFloat countY = 0;

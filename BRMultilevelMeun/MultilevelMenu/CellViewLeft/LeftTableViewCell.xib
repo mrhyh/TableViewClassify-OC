@@ -18,7 +18,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4L-6Q-wwn">
                         <rect key="frame" x="0.0" y="0.0" width="2" height="42"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.42352941179999998" green="0.71372549019999998" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.59607843137254901" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="D1E-fq-EyH"/>
                             <constraint firstAttribute="height" constant="42" id="pMf-oO-Kak"/>
@@ -31,7 +31,7 @@
                             <constraint firstAttribute="width" constant="74" id="CCh-IP-uAy"/>
                             <constraint firstAttribute="height" constant="21" id="Zpf-aV-pbg"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -16,11 +16,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-//    if(selected == YES){
-//        [_indicatorBtn setImage:[UIImage imageNamed:@"success"] forState:UIControlStateSelected];
-//    }
-    // Configure the view for the selected state
+    
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
@@ -35,16 +31,12 @@
     return cell;
 }
 
-
-
-
-
 - (void)setFriendData:(MJFriend *)friendData{
     
     _friendData = friendData;
     
     _nameLabel.text = friendData.name;
-    _nameLabel.textColor = friendData.isVip ? [UIColor redColor] : [UIColor blackColor];
+//    _nameLabel.textColor = friendData.isVip ? [UIColor redColor] : [UIColor blackColor];
 }
 
 - (void)setNameLabel:(UILabel *)nameLabel{

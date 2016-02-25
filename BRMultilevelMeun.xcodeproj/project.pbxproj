@@ -16,11 +16,10 @@
 		66BCC0DA1AE03C160029F30F /* BRMultilevelMeunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0D91AE03C160029F30F /* BRMultilevelMeunTests.m */; };
 		66BCC0F71AE03C6F0029F30F /* MultilevelMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */; };
 		EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB11C1761C7C81DD00EA52E0 /* friends.plist */; };
+		EB11DE531C7EC94A00DC1544 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11DE511C7EC94A00DC1544 /* LeftTableViewCell.m */; };
+		EB11DE541C7EC94A00DC1544 /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11DE521C7EC94A00DC1544 /* LeftTableViewCell.xib */; };
 		EB296F911C7D7A6300CDB69F /* RightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */; };
-		EB296F9C1C7D9D4E00CDB69F /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */; };
-		EB296F9D1C7D9D4E00CDB69F /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */; };
 		EB296FA11C7DA32B00CDB69F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EB296FA01C7DA32B00CDB69F /* UIColor+Hex.m */; };
-		EB5188861C7C55FA0099FDBB /* MJFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188801C7C55FA0099FDBB /* MJFriendCell.m */; };
 		EB5188871C7C55FA0099FDBB /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */; };
 		EB5188891C7C55FA0099FDBB /* MJHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188851C7C55FA0099FDBB /* MJHeaderView.m */; };
 		EB51888F1C7C563B0099FDBB /* MJFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51888C1C7C563B0099FDBB /* MJFriend.m */; };
@@ -54,15 +53,13 @@
 		66BCC0EF1AE03C6F0029F30F /* MultilevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilevelMenu.h; sourceTree = "<group>"; };
 		66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilevelMenu.m; sourceTree = "<group>"; };
 		EB11C1761C7C81DD00EA52E0 /* friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friends.plist; sourceTree = "<group>"; };
+		EB11DE501C7EC94A00DC1544 /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		EB11DE511C7EC94A00DC1544 /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		EB11DE521C7EC94A00DC1544 /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
 		EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightTableViewCell.xib; sourceTree = "<group>"; };
 		EB296F981C7D983700CDB69F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = MultilevelMenu/Common.h; sourceTree = "<group>"; };
-		EB296F991C7D9D4E00CDB69F /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
-		EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
-		EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
 		EB296F9F1C7DA32B00CDB69F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		EB296FA01C7DA32B00CDB69F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		EB51887F1C7C55FA0099FDBB /* MJFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendCell.h; sourceTree = "<group>"; };
-		EB5188801C7C55FA0099FDBB /* MJFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendCell.m; sourceTree = "<group>"; };
 		EB5188811C7C55FA0099FDBB /* RightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightTableViewCell.h; sourceTree = "<group>"; };
 		EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightTableViewCell.m; sourceTree = "<group>"; };
 		EB5188841C7C55FA0099FDBB /* MJHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJHeaderView.h; sourceTree = "<group>"; };
@@ -159,21 +156,21 @@
 			children = (
 				EB51888A1C7C56250099FDBB /* Model */,
 				EB51887E1C7C55DF0099FDBB /* CellViewRight */,
-				66BCC0E51AE03C6F0029F30F /* CellView */,
+				EB11DE4F1C7EC94A00DC1544 /* CellViewLeft */,
 				66BCC0EF1AE03C6F0029F30F /* MultilevelMenu.h */,
 				66BCC0F01AE03C6F0029F30F /* MultilevelMenu.m */,
 			);
 			path = MultilevelMenu;
 			sourceTree = "<group>";
 		};
-		66BCC0E51AE03C6F0029F30F /* CellView */ = {
+		EB11DE4F1C7EC94A00DC1544 /* CellViewLeft */ = {
 			isa = PBXGroup;
 			children = (
-				EB296F991C7D9D4E00CDB69F /* LeftTableViewCell.h */,
-				EB296F9A1C7D9D4E00CDB69F /* LeftTableViewCell.m */,
-				EB296F9B1C7D9D4E00CDB69F /* LeftTableViewCell.xib */,
+				EB11DE501C7EC94A00DC1544 /* LeftTableViewCell.h */,
+				EB11DE511C7EC94A00DC1544 /* LeftTableViewCell.m */,
+				EB11DE521C7EC94A00DC1544 /* LeftTableViewCell.xib */,
 			);
-			path = CellView;
+			path = CellViewLeft;
 			sourceTree = "<group>";
 		};
 		EB296F9E1C7DA31C00CDB69F /* Category */ = {
@@ -189,8 +186,6 @@
 		EB51887E1C7C55DF0099FDBB /* CellViewRight */ = {
 			isa = PBXGroup;
 			children = (
-				EB51887F1C7C55FA0099FDBB /* MJFriendCell.h */,
-				EB5188801C7C55FA0099FDBB /* MJFriendCell.m */,
 				EB5188811C7C55FA0099FDBB /* RightTableViewCell.h */,
 				EB5188821C7C55FA0099FDBB /* RightTableViewCell.m */,
 				EB296F901C7D7A6300CDB69F /* RightTableViewCell.xib */,
@@ -291,10 +286,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB11DE541C7EC94A00DC1544 /* LeftTableViewCell.xib in Resources */,
 				66BCC0C91AE03C160029F30F /* Main.storyboard in Resources */,
 				EB11C1771C7C81DD00EA52E0 /* friends.plist in Resources */,
 				EB296F911C7D7A6300CDB69F /* RightTableViewCell.xib in Resources */,
-				EB296F9D1C7D9D4E00CDB69F /* LeftTableViewCell.xib in Resources */,
 				66BCC0CE1AE03C160029F30F /* LaunchScreen.xib in Resources */,
 				66BCC0CB1AE03C160029F30F /* Images.xcassets in Resources */,
 			);
@@ -319,8 +314,7 @@
 				66BCC0C61AE03C160029F30F /* ViewController.m in Sources */,
 				EB5188871C7C55FA0099FDBB /* RightTableViewCell.m in Sources */,
 				66BCC0C31AE03C160029F30F /* AppDelegate.m in Sources */,
-				EB5188861C7C55FA0099FDBB /* MJFriendCell.m in Sources */,
-				EB296F9C1C7D9D4E00CDB69F /* LeftTableViewCell.m in Sources */,
+				EB11DE531C7EC94A00DC1544 /* LeftTableViewCell.m in Sources */,
 				EB5188891C7C55FA0099FDBB /* MJHeaderView.m in Sources */,
 				66BCC0F71AE03C6F0029F30F /* MultilevelMenu.m in Sources */,
 				EB51888F1C7C563B0099FDBB /* MJFriend.m in Sources */,
