@@ -48,7 +48,7 @@
         self.leftSelectColor=[UIColor blueColor];
         self.leftSelectBgColor=[UIColor whiteColor];
         self.leftBgColor=AppVCBGColor;
-        self.leftSeparatorColor=BorDerColor1;
+        self.leftSeparatorColor=[UIColor blackColor];
         self.leftUnSelectBgColor=[UIColor whiteColor];
         self.leftUnSelectColor=[UIColor blackColor];
         
