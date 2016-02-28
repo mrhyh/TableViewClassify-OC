@@ -164,7 +164,8 @@
     if(_leftTablew == tableView){
         return 1;
     }else {
-        return self.groups.count;;
+        //return self.groups.count;
+        return 1;
     }
 }
 
@@ -177,6 +178,7 @@
     }else {
         //return (self.allData.count>0 ? self.allData.count : 1);
         MJFriendGroup *group = self.groups[section];
+        
         return (group.isOpened ? group.friends.count : 0);
     }
    
@@ -228,7 +230,11 @@
 
         // 2.设置cell的数据
         MJFriendGroup *group = self.groups[indexPath.section];
-        cell.friendData = group.friends[indexPath.row];
+        //cell.friendData = group.friends[indexPath.row];
+        if(_needToScorllerIndex != nil){
+            cell.friendData = group.friends[_needToScorllerIndex];
+        }
+
         
         NSLog(@"%@",NSStringFromCGRect(cell.indicatorBtn.frame));
         return cell;
@@ -253,6 +259,10 @@
     
     // 2.给header设置数据(给header传递模型)
     header.group = self.groups[section];
+    if(_needToScorllerIndex != nil){
+        header.group = self.groups[_needToScorllerIndex];
+    }
+    
     if(header.group.friends.count < 0){
 
         [header.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
@@ -284,16 +294,19 @@
         
         self.isReturnLastOffset=NO;
         
+        _needToScorllerIndex = indexPath.row;
+        
         [self.rightTablew reloadData];
         
         
         if (self.isRecordLastScroll) {
             [self.rightTablew scrollRectToVisible:CGRectMake(0, title.offsetScorller, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
-        }
-        else{
+        }else{
             
             [self.rightTablew scrollRectToVisible:CGRectMake(0, 0, self.rightTablew.frame.size.width, self.rightTablew.frame.size.height) animated:self.isRecordLastScrollAnimated];
         }
+        
+        
 
     }else{
         //NSLog(@"rightTableView.indexPath%ld",(long)indexPath.row);

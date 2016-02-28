@@ -78,7 +78,7 @@
     }];
     
     
-    menuView.needToScorllerIndex=0;
+    menuView.needToScorllerIndex=2;
     menuView.isRecordLastScroll=YES;
     
     [self.view addSubview:menuView];
