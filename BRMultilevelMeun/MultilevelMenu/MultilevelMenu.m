@@ -259,11 +259,11 @@
     
     // 2.给header设置数据(给header传递模型)
     header.group = self.groups[section];
-    if(_needToScorllerIndex != nil){
+    if(_needToScorllerIndex >= 0){
         header.group = self.groups[_needToScorllerIndex];
     }
     
-    if(header.group.friends.count < 0){
+    if(header.group.friends.count < 20){
 
         [header.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
         
