@@ -260,10 +260,8 @@
         header.group = self.groups[_needToScorllerIndex];
     }
     
-    if(header.group.friends.count < 20){ //处理右边tableView数据显示
-
+    if(header.group.friends.count <= 0){ //处理右边tableView数据显示
         [header.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
-        
     }
 
     return header;
