@@ -8,6 +8,7 @@
 
 #import "MJHeaderView.h"
 #import "MJFriendGroup.h"
+#import "Common.h"
 
 @interface MJHeaderView()
 
@@ -57,7 +58,7 @@
         // 设置按钮的内边距
         _indicatorBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         _indicatorBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        _indicatorBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 235, 0, 0);
+        _indicatorBtn.imageEdgeInsets = UIEdgeInsetsMake(0, IPHONE_WIDTH-100-50, 0, 0); //100是左边tableView宽度
         
         // 设置按钮内部的imageView的内容模式为居中
         _indicatorBtn.imageView.contentMode = UIViewContentModeCenter;

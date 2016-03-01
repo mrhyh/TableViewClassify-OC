@@ -33,7 +33,7 @@
                         </variation>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab6-mc-yvr">
-                        <rect key="frame" x="236" y="7" width="30" height="30"/>
+                        <rect key="frame" x="227" y="7" width="30" height="30"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -58,7 +58,7 @@
                     <constraint firstItem="uDf-SK-1EX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="lzT-mw-8u2"/>
                     <constraint firstAttribute="bottomMargin" secondItem="uDf-SK-1EX" secondAttribute="bottom" constant="3" id="sV6-5t-Jvp"/>
                     <constraint firstItem="uDf-SK-1EX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="tXs-cX-pFk"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Ab6-mc-yvr" secondAttribute="trailing" constant="1" id="xmj-RV-T1X"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ab6-mc-yvr" secondAttribute="trailing" constant="10" id="xmj-RV-T1X"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -80,6 +80,6 @@
     <resources>
         <image name="007" width="30" height="30"/>
         <image name="code" width="25" height="25"/>
-        <image name="success" width="140" height="140"/>
+        <image name="success" width="210" height="210"/>
     </resources>
 </document>

@@ -32,8 +32,6 @@
 @end
 @implementation MultilevelMenu
 
-
-
 -(instancetype)initWithFrame:(CGRect)frame WithData:(NSArray *)data withSelectIndex:(void (^)(NSInteger, NSInteger, id))selectIndex
 {
     self=[super initWithFrame:frame];
@@ -81,8 +79,7 @@
         /**
          右边的视图
          */
-        
-        float leftMargin =0;
+        float leftMargin = 0;
         self.rightTablew=[[UITableView alloc] initWithFrame:CGRectMake(kLeftWidth+leftMargin,0,kScreenWidth-kLeftWidth-leftMargin*2,frame.size.height)];
         
         //添加footView可以去掉尾部空白的cell
@@ -231,7 +228,7 @@
         // 2.设置cell的数据
         MJFriendGroup *group = self.groups[indexPath.section];
         //cell.friendData = group.friends[indexPath.row];
-        if(_needToScorllerIndex != nil){
+        if(_needToScorllerIndex >=0){
             cell.friendData = group.friends[_needToScorllerIndex];
         }
 
@@ -263,7 +260,7 @@
         header.group = self.groups[_needToScorllerIndex];
     }
     
-    if(header.group.friends.count < 20){
+    if(header.group.friends.count < 20){ //处理右边tableView数据显示
 
         [header.indicatorBtn setImage:[UIImage imageNamed:@"code"] forState:UIControlStateNormal];
         
